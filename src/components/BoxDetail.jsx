@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./BoxDetail.module.css";
 
-const BoxDetail = (props) => {
+const BoxDetail = ({ box, color }) => {
+  console.log(color);
   return (
-    <div className={styles.container}>
-      <div className={styles.box}></div>
-      <div className={styles.box}></div>
-      <div className={styles.box}></div>
-      <div className={styles.box}></div>
-    </div>
+    <div
+      key={box.id}
+      className={styles.box}
+      style={{ backgroundColor: `${color}` }}
+    ></div>
   );
 };
 
