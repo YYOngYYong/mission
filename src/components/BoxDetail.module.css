@@ -1,5 +1,9 @@
-.box {
+.boxes {
   width: calc(50% - 2px);
   height: calc(50% - 2px);
   margin: 1px;
+}
+
+.unique {
+  background-color: yellow;
 }
