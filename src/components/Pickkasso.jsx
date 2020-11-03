@@ -9,6 +9,7 @@ const Pickkasso = ({
   setScore,
   score,
   randomId,
+  setBoxs,
 }) => {
   return (
     <div className={styles.container}>

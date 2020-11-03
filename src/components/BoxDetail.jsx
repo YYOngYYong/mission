@@ -5,8 +5,13 @@ const BoxDetail = ({ box, color, score, setScore, randomId }) => {
   const uniId = Math.floor(Math.random() * 4);
   console.log(uniId);
 
-  const onClick = (event) => {
-    setScore(score + 1);
+  const onClick = () => {
+    if (randomId === box.id) {
+      setScore(score + 1);
+    } else {
+      alert("실패");
+      setScore(0);
+    }
   };
   return (
     <div
