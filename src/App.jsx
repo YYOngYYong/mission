@@ -4,7 +4,7 @@ import Pickkasso from "./components/Pickkasso";
 
 function App() {
   const [color, setColor] = useState("");
-  const [otherColor, setOtherColor] = useState("");
+
   const [score, setScore] = useState(0);
   const [boxes, setBoxs] = useState([
     {
@@ -21,9 +21,13 @@ function App() {
     },
   ]);
 
+  const randomId = () => {
+    const randomBox = Math.floor(Math.random() * boxes.length + 1);
+    return randomBox;
+  };
+
   useEffect(() => {
     setColor(randomRgb());
-    setOtherColor(differColor());
   }, []);
 
   return (
@@ -32,9 +36,9 @@ function App() {
         <Pickkasso
           boxes={boxes}
           colors={color}
-          otherColor={otherColor}
           setScore={setScore}
           score={score}
+          randomId={randomId()}
         />
       </div>
       <p>score : {score}</p>
