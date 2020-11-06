@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BoxDetail from "./BoxDetail";
 import styles from "./Boxes.module.css";
 
-const Boxes = ({ boxes, colors, setScore, score, randomId }) => {
+const Boxes = ({ boxes, colors, setScore, score, randomId, createBox }) => {
   return (
     <div className={styles.container}>
       {boxes.map((box) => (
@@ -14,6 +14,7 @@ const Boxes = ({ boxes, colors, setScore, score, randomId }) => {
           score={score}
           randomId={randomId}
           boxes={boxes}
+          createBox={createBox}
         />
       ))}
     </div>

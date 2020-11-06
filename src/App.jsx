@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./App.module.css";
 import Boxes from "./components/Boxes";
 
@@ -25,21 +25,19 @@ function App() {
     return randomBox;
   };
 
-  const addBoxes = () => {
-    const boxList = {
-      id: 5,
-    };
-    let boxCount = 3;
-    for (let i = 1; i <= boxCount ** 2; i++) {
-      setBoxes(boxList);
-    }
-
-    boxCount++;
-  };
-
   useEffect(() => {
     setColor(randomRgb());
   }, [score]);
+
+  const nextId = useRef(5);
+
+  const createBox = () => {
+    const box = {
+      id: nextId.current,
+    };
+    setBoxes([...boxes, box]);
+    nextId.current += 1;
+  };
 
   return (
     <>
@@ -50,7 +48,7 @@ function App() {
           setScore={setScore}
           score={score}
           randomId={randomId()}
-          addBoxes={addBoxes}
+          createBox={createBox}
         />
       </div>
       <p>score : {score}</p>
