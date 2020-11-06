@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./BoxDetail.module.css";
 
 const BoxDetail = ({ box, color, score, setScore, randomId }) => {
-  const uniId = Math.floor(Math.random() * 4);
-  console.log(uniId);
-
   const onClick = () => {
     if (randomId === box.id) {
       setScore(score + 1);

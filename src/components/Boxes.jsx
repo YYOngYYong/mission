@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import BoxDetail from "./BoxDetail";
-import styles from "./Pickkasso.module.css";
+import styles from "./Boxes.module.css";
 
-const Pickkasso = ({
-  boxes,
-  colors,
-  otherColor,
-  setScore,
-  score,
-  randomId,
-  setBoxs,
-}) => {
+const Boxes = ({ boxes, colors, setScore, score, randomId }) => {
   return (
     <div className={styles.container}>
       {boxes.map((box) => (
@@ -21,10 +13,11 @@ const Pickkasso = ({
           setScore={setScore}
           score={score}
           randomId={randomId}
+          boxes={boxes}
         />
       ))}
     </div>
   );
 };
 
-export default Pickkasso;
+export default Boxes;

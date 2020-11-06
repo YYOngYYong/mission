@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
-import Pickkasso from "./components/Pickkasso";
+import Boxes from "./components/Boxes";
 
 function App() {
   const [color, setColor] = useState("");
-
   const [score, setScore] = useState(0);
-  const [boxes, setBoxs] = useState([
+  const [boxes, setBoxes] = useState([
     {
       id: 1,
     },
@@ -26,19 +25,32 @@ function App() {
     return randomBox;
   };
 
+  const addBoxes = () => {
+    const boxList = {
+      id: 5,
+    };
+    let boxCount = 3;
+    for (let i = 1; i <= boxCount ** 2; i++) {
+      setBoxes(boxList);
+    }
+
+    boxCount++;
+  };
+
   useEffect(() => {
     setColor(randomRgb());
-  }, []);
+  }, [score]);
 
   return (
     <>
       <div className={styles.app}>
-        <Pickkasso
+        <Boxes
           boxes={boxes}
           colors={color}
           setScore={setScore}
           score={score}
           randomId={randomId()}
+          addBoxes={addBoxes}
         />
       </div>
       <p>score : {score}</p>
@@ -52,10 +64,4 @@ const randomRgb = () => {
   return `rgb(${red},${green},${blue})`;
 };
 
-const differColor = () => {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
-  return `rgb(${red},${green},${blue + 20})`;
-};
 export default App;
