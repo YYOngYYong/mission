@@ -49,6 +49,7 @@ function App() {
           score={score}
           randomId={randomId()}
           createBox={createBox}
+          setBoxes={setBoxes}
         />
       </div>
       <p>score : {score}</p>

@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./BoxDetail.module.css";
 
-const BoxDetail = ({ box, color, score, setScore, randomId, createBox }) => {
+const BoxDetail = ({
+  box,
+  color,
+  score,
+  setScore,
+  randomId,
+  createBox,
+  setBoxes,
+  boxes,
+}) => {
   const onClick = () => {
     if (randomId === box.id) {
       setScore(score + 1);
@@ -9,6 +18,20 @@ const BoxDetail = ({ box, color, score, setScore, randomId, createBox }) => {
     } else {
       alert("실패");
       setScore(0);
+      setBoxes([
+        {
+          id: 1,
+        },
+        {
+          id: 2,
+        },
+        {
+          id: 3,
+        },
+        {
+          id: 4,
+        },
+      ]);
     }
   };
   console.log(color);
